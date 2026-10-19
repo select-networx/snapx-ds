@@ -2,27 +2,19 @@
 
 ::: raw
 <div class="component-example">
-  <snap-button>Click me</snap-button>
-  <snap-button variant="primary">Click me</snap-button>
-  <snap-button variant="danger">Click me</snap-button>
-  <snap-button variant="success">Click me</snap-button>
-  <snap-button size="small">Click me</snap-button>
-  <snap-button size="large">Click me</snap-button>
+  <snap-search>Search</snap-search>
+  <snap-search variant="primary">Search</snap-search>
 </div>
 :::
 
 ```html
-<snap-button>Click me</snap-button>
-<snap-button variant="primary">Click me</snap-button>
-<snap-button variant="danger">Click me</snap-button>
-<snap-button variant="success">Click me</snap-button>
-<snap-button size="small">Click me</snap-button>
-<snap-button size="large">Click me</snap-button>
+<snap-search>Search</snap-search>
+<snap-search variant="primary">Search</snap-search>
 ```
 
 ## Props
 
-<PropsTable tag="snap-button" />
+<PropsTable tag="snap-search" />
 
 <style>
     .component-example {
@@ -34,4 +26,3 @@
         margin-top: 1.25rem;
     }
 </style>
-

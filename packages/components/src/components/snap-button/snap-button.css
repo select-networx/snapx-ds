@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 @scope (snap-button) {
 
   /* Unset makes sure styles don't leak in */
@@ -11,96 +9,86 @@
     display: revert;
   }
 
-  /* Targets the host element (snap-button) */
+  /*
+  ** Targets the host element (snap-button).
+  **
+  ** Defaults live in private --_* properties. The public --snap-button-*
+  ** properties are only ever read (with the private value as fallback),
+  ** never declared here, so consumers can set them on the element or any
+  ** ancestor, from inside a cascade layer or not.
+  */
   :scope {
+    --_font: Inter, sans-serif;
+    --_font-size: var(--size-step-0, 1rem);
+    --_font-weight: var(--font-weight-button, 500);
+    --_bg: var(--color-surface-default, white);
+    --_bg-hover: var(--color-surface-default-hover, #fafafa);
+    --_text: var(--color-text-loud, #121812);
+    --_padding-x: var(--space-sm, 1em);
+    --_padding-y: var(--space-xs, .6em);
+    --_border-color: var(--color-border-quiet, #eaeaea);
+    --_border-width: var(--border-width-main, 1px);
+    --_border-style: var(--border-style-main, solid);
+    --_radius: var(--radius-sm, 0.5em);
 
-    /* Public CSS properties */
-    --snap-button-font: Inter, sans-serif;
-    --snap-button-text: white;
-    --snap-button-bg: blue;
-
-    /* Display mode for the host element */
-    display: inline-block;
-
-    /* per the article: */
-    /* Targets the host element (my-button) */
-    /* Default custom properties. Override for variants where needed. */
-    --my-button-font: var(--font-family-body, sans-serif);
-    --my-button-font-size: var(--size-step-0, 1rem);
-    --my-button-font-weight: var(--font-weight-button, 500);
-    --my-button-bg: var(--color-surface-default, white);
-    --my-button-bg-hover: var(--color-surface-default-hover, #fafafa);
-    --my-button-text: var(--color-text-loud, #121812);
-    --my-button-padding-x: var(--space-sm, 1em);
-    --my-button-padding-y: var(--space-xs, .6em);
-    --my-button-border-color: var(--color-border-quiet, #eaeaea);
-    --my-button-border-width: var(--border-width-main, 1px);
-    --my-button-border-style: var(--border-style-main, solid);
-    --my-button-radius: var(--radius-sm, 0.5em);
     /* Display mode for the host element */
     display: inline-block;
   }
 
-  /* 
-  ** NOTE: we may want to ensure that :scope is prepended 
+  /*
+  ** NOTE: we may want to ensure that :scope is prepended
   ** to the class selector to prevent outside styles leaking in,
-  ** i.e. :scope .snap-button 
+  ** i.e. :scope .snap-button
   */
   .snap-button {
-    font-family: var(--snap-button-font);
-    color: var(--snap-button-text);
-    background: var(--snap-button-bg);
-    display: inline-block;
-
-    /* per the article */
+    font-family: var(--snap-button-font, var(--_font));
+    font-size: var(--snap-button-font-size, var(--_font-size));
+    font-weight: var(--snap-button-font-weight, var(--_font-weight));
+    color: var(--snap-button-text, var(--_text));
+    background: var(--snap-button-bg, var(--_bg));
+    border-color: var(--snap-button-border-color, var(--_border-color));
+    border-width: var(--snap-button-border-width, var(--_border-width));
+    border-style: var(--snap-button-border-style, var(--_border-style));
+    border-radius: var(--snap-button-radius, var(--_radius));
+    padding: var(--snap-button-padding-y, var(--_padding-y)) var(--snap-button-padding-x, var(--_padding-x));
     text-decoration: none;
-    /* font-family: var(--my-button-font); */
-    font-size: var(--my-button-font-size);
-    font-weight: var(--my-button-font-weight);
-    color: var(--my-button-text);
-    background: var(--my-button-bg);
-    border-color: var(--my-button-border-color);
-    border-width: var(--my-button-border-width);
-    border-style: var(--my-button-border-style);
-    border-radius: var(--my-button-radius);
-    padding: var(--my-button-padding-y) var(--my-button-padding-x);
     display: inline-flex;
     cursor: pointer;
+
     &:hover {
-        background: var(--my-button-bg-hover);
+      background: var(--snap-button-bg-hover, var(--_bg-hover));
     }
   }
 
-  /* Rest of your component styles */
+  /* Overrides for primary variant */
   :scope[variant="primary"] {
-    --snap-button-bg: red;
-    --my-button-bg: var(--color-primary-bg, #3d33cf);
-    --my-button-bg-hover: var(--color-primary-bg-hover, #3730b5);
-    --my-button-text: var(--color-on-primary, #edf1ff);
-    --my-button-border-color: transparent;
+    --_bg: var(--color-primary-bg, #3d33cf);
+    --_bg-hover: var(--color-primary-bg-hover, #3730b5);
+    --_text: var(--color-on-primary, #edf1ff);
+    --_border-color: transparent;
   }
 
   /* Overrides for danger variant */
   :scope[variant="danger"] {
-      --my-button-bg: var(--color-danger-bg, #fee2e2);
-      --my-button-bg-hover: var(--color-danger-bg-hover, #fecaca);
-      --my-button-text: var(--color-on-danger, #b91c1c);
-      --my-button-border-color: transparent;
+    --_bg: var(--color-danger-bg, #fee2e2);
+    --_bg-hover: var(--color-danger-bg-hover, #fecaca);
+    --_text: var(--color-on-danger, #b91c1c);
+    --_border-color: transparent;
   }
-  
+
   /* Overrides for success variant */
   :scope[variant="success"] {
-      --my-button-bg: var(--color-success-bg, #dcfce7);
-      --my-button-bg-hover: var(--color-success-bg-hover, #bbf7d0);
-      --my-button-text: var(--color-on-success, #064e3b);
-      --my-button-border-color: transparent;
+    --_bg: var(--color-success-bg, #dcfce7);
+    --_bg-hover: var(--color-success-bg-hover, #bbf7d0);
+    --_text: var(--color-on-success, #064e3b);
+    --_border-color: transparent;
   }
 
   :scope[size="small"] {
-    --my-button-font-size: 14px;
+    --_font-size: 14px;
   }
-  
+
   :scope[size="large"] {
-    --my-button-font-size: 18px;
+    --_font-size: 18px;
   }
 }
