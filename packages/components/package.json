@@ -1,7 +1,15 @@
 {
-  "name": "@snapx-ds/components",
+  "name": "@select-networx/snapx-ds",
   "version": "0.0.1",
-  "private": true,
+  "description": "SNAPx Design System web components.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/select-networx/snapx-ds.git",
+    "directory": "packages/components"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "main": "./dist/bundle.js",
   "types": "./dist/bundle.d.ts",

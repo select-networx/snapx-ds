@@ -3,7 +3,7 @@ import { join, posix } from "node:path";
 
 /**
  * Custom Elements Manifest plugin that writes a declaration file for the
- * bundle entry, so `import { SnapButton } from "@snapx-ds/components"`
+ * bundle entry, so `import { SnapButton } from "@select-networx/snapx-ds"`
  * type-checks in consumers.
  *
  * Elena only emits per-component `.d.ts` files. This re-exports them under
