@@ -4,13 +4,23 @@
   "private": true,
   "type": "module",
   "main": "./dist/bundle.js",
+  "types": "./dist/bundle.d.ts",
   "exports": {
-    ".": "./dist/bundle.js",
+    ".": {
+      "types": "./dist/bundle.d.ts",
+      "default": "./dist/bundle.js"
+    },
     "./dist/*": "./dist/*"
   },
+  "files": [
+    "dist"
+  ],
+  "customElements": "dist/custom-elements.json",
   "scripts": {
     "build": "elena build",
-    "watch": "elena watch"
+    "watch": "elena watch",
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "prepack": "npm run clean && npm run build"
   },
   "devDependencies": {
     "@elenajs/bundler": "^1.0.0",
