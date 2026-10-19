@@ -12,7 +12,16 @@ import { Elena, html } from "@elenajs/core";
  *
  * @cssprop [--snap-button-text] - Overrides the default text color.
  * @cssprop [--snap-button-bg] - Overrides the default background color.
+ * @cssprop [--snap-button-bg-hover] - Overrides the default background color on hover.
  * @cssprop [--snap-button-font] - Overrides the default font family.
+ * @cssprop [--snap-button-font-size] - Overrides the default font size.
+ * @cssprop [--snap-button-font-weight] - Overrides the default font weight.
+ * @cssprop [--snap-button-padding-x] - Overrides the default horizontal padding.
+ * @cssprop [--snap-button-padding-y] - Overrides the default vertical padding.
+ * @cssprop [--snap-button-border-color] - Overrides the default border color.
+ * @cssprop [--snap-button-border-width] - Overrides the default border width.
+ * @cssprop [--snap-button-border-style] - Overrides the default border style.
+ * @cssprop [--snap-button-radius] - Overrides the default border radius.
  */
 export default class SnapButton extends Elena(HTMLElement) {
   static tagName = "snap-button";

@@ -3,4 +3,5 @@
 
 // Componment exports will live here!
 export { default as SnapButton } from "./components/snap-button/snap-button.ts";
+export { default as SnapSearch } from "./components/snap-search/snap-search.ts";
 

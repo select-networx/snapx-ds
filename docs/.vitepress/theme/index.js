@@ -1,5 +1,5 @@
 import DefaultTheme from "vitepress/theme";
-import "@snapx-ds/components/dist/bundle.css";
+import "@select-networx/snapx-ds/dist/bundle.css";
 import ComponentHeader from "./components/ComponentHeader.vue";
 import PropsTable from "./components/PropsTable.vue";
 
@@ -11,7 +11,7 @@ export default {
   },
   async setup() {
     if (typeof window !== "undefined") {
-      await import("@snapx-ds/components");
+      await import("@select-networx/snapx-ds");
     }
   },
 };

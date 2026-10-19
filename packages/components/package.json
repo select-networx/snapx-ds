@@ -1,16 +1,34 @@
 {
-  "name": "@snapx-ds/components",
+  "name": "@select-networx/snapx-ds",
   "version": "0.0.1",
-  "private": true,
+  "description": "SNAPx Design System web components.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/select-networx/snapx-ds.git",
+    "directory": "packages/components"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "type": "module",
   "main": "./dist/bundle.js",
+  "types": "./dist/bundle.d.ts",
   "exports": {
-    ".": "./dist/bundle.js",
+    ".": {
+      "types": "./dist/bundle.d.ts",
+      "default": "./dist/bundle.js"
+    },
     "./dist/*": "./dist/*"
   },
+  "files": [
+    "dist"
+  ],
+  "customElements": "dist/custom-elements.json",
   "scripts": {
     "build": "elena build",
-    "watch": "elena watch"
+    "watch": "elena watch",
+    "clean": "node -e \"require('fs').rmSync('dist', { recursive: true, force: true })\"",
+    "prepack": "npm run clean && npm run build"
   },
   "devDependencies": {
     "@elenajs/bundler": "^1.0.0",
