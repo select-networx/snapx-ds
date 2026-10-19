@@ -1,0 +1,37 @@
+@scope (snap-search) {
+
+  /* Unset makes sure styles don't leak in */
+  :scope,
+  *:where(:not(img, svg):not(svg *)),
+  *::before,
+  *::after {
+    all: unset;
+    display: revert;
+  }
+
+  /* Targets the host element (snap-search) */
+  :scope {
+
+    /* Public CSS properties */
+    --snap-search-font: sans-serif;
+    --snap-search-text: white;
+    --snap-search-bg: blue;
+
+    /* Display mode for the host element */
+    display: inline-block;
+  }
+
+  /* CSS pre-hydration styles */
+  :scope:not([hydrated]),
+  .snap-search {
+    font-family: var(--snap-search-font);
+    color: var(--snap-search-text);
+    background: var(--snap-search-bg);
+    display: inline-block;
+  }
+
+  /* Rest of your component styles */
+  :scope[variant="primary"] {
+    --snap-search-bg: red;
+  }
+}
