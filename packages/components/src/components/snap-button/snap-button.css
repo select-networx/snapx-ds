@@ -12,24 +12,30 @@
   /*
   ** Targets the host element (snap-button).
   **
-  ** Defaults live in private --_* properties. The public --snap-button-*
-  ** properties are only ever read (with the private value as fallback),
-  ** never declared here, so consumers can set them on the element or any
-  ** ancestor, from inside a cascade layer or not.
+  ** Defaults live in private --_* properties, set from the design tokens in
+  ** tokens.css. The public --snap-button-* properties are only ever read
+  ** (with the private value as fallback), never declared here, so consumers
+  ** can set them on the element or any ancestor, from inside a cascade layer
+  ** or not.
+  **
+  ** The default variant is the prototype's secondary button.
   */
   :scope {
-    --_font: Inter, sans-serif;
-    --_font-size: var(--size-step-0, 1rem);
-    --_font-weight: var(--font-weight-button, 500);
-    --_bg: var(--color-surface-default, white);
-    --_bg-hover: var(--color-surface-default-hover, #fafafa);
-    --_text: var(--color-text-loud, #121812);
-    --_padding-x: var(--space-sm, 1em);
-    --_padding-y: var(--space-xs, .6em);
-    --_border-color: var(--color-border-quiet, #eaeaea);
-    --_border-width: var(--border-width-main, 1px);
-    --_border-style: var(--border-style-main, solid);
-    --_radius: var(--radius-sm, 0.5em);
+    --_font: var(--snap-font-ui);
+    --_font-size: var(--snap-text-base);
+    --_font-weight: var(--snap-weight-medium);
+    --_bg: var(--snap-color-surface);
+    --_bg-hover: var(--snap-color-surface);
+    --_text: var(--snap-color-ink-2);
+    --_text-hover: var(--snap-color-accent);
+    --_padding-x: var(--snap-space-9);
+    /* 10px including the 1px border */
+    --_padding-y: calc(var(--snap-space-5) - 1px);
+    --_border-color: var(--snap-color-border);
+    --_border-color-hover: var(--snap-color-accent);
+    --_border-width: 1px;
+    --_border-style: solid;
+    --_radius: var(--snap-radius-control);
 
     /* Display mode for the host element */
     display: inline-block;
@@ -44,6 +50,8 @@
     font-family: var(--snap-button-font, var(--_font));
     font-size: var(--snap-button-font-size, var(--_font-size));
     font-weight: var(--snap-button-font-weight, var(--_font-weight));
+    /* Matches the prototype's font shorthand, whatever the page's line-height */
+    line-height: normal;
     color: var(--snap-button-text, var(--_text));
     background: var(--snap-button-bg, var(--_bg));
     border-color: var(--snap-button-border-color, var(--_border-color));
@@ -54,41 +62,61 @@
     text-decoration: none;
     display: inline-flex;
     cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s, color 0.2s;
 
-    &:hover {
-      background: var(--snap-button-bg-hover, var(--_bg-hover));
+    &:focus-visible {
+      outline: 2px solid var(--snap-color-focus, var(--snap-color-accent));
+      outline-offset: 2px;
     }
   }
 
-  /* Overrides for primary variant */
+  :scope:not([disabled]) .snap-button:hover {
+    background: var(--snap-button-bg-hover, var(--_bg-hover));
+    border-color: var(--snap-button-border-color-hover, var(--_border-color-hover));
+    color: var(--snap-button-text-hover, var(--_text-hover));
+  }
+
+  /* Primary: filled with the accent; darkens on hover */
   :scope[variant="primary"] {
-    --_bg: var(--color-primary-bg, #3d33cf);
-    --_bg-hover: var(--color-primary-bg-hover, #3730b5);
-    --_text: var(--color-on-primary, #edf1ff);
+    /* 1px less than the default, so with the transparent border the box is the prototype's 10px 18px */
+    --_padding-x: calc(var(--snap-space-9) - 1px);
+    --_bg: var(--snap-color-accent);
+    --_bg-hover: var(--snap-color-accent-hover);
+    --_text: var(--snap-color-on-accent);
+    --_text-hover: var(--snap-color-on-accent);
     --_border-color: transparent;
+    --_border-color-hover: transparent;
   }
 
-  /* Overrides for danger variant */
+  /* Danger and success: tinted, from the status palette */
   :scope[variant="danger"] {
-    --_bg: var(--color-danger-bg, #fee2e2);
-    --_bg-hover: var(--color-danger-bg-hover, #fecaca);
-    --_text: var(--color-on-danger, #b91c1c);
-    --_border-color: transparent;
+    --_bg: var(--snap-color-danger-bg);
+    --_bg-hover: var(--snap-color-danger-bg);
+    --_text: var(--snap-color-danger-ink);
+    --_text-hover: var(--snap-color-danger-ink-2);
+    --_border-color: var(--snap-color-danger-border);
+    --_border-color-hover: var(--snap-color-danger);
   }
 
-  /* Overrides for success variant */
   :scope[variant="success"] {
-    --_bg: var(--color-success-bg, #dcfce7);
-    --_bg-hover: var(--color-success-bg-hover, #bbf7d0);
-    --_text: var(--color-on-success, #064e3b);
-    --_border-color: transparent;
+    --_bg: var(--snap-color-success-bg);
+    --_bg-hover: var(--snap-color-success-bg);
+    --_text: var(--snap-color-success-ink);
+    --_text-hover: var(--snap-color-success-ink);
+    --_border-color: var(--snap-color-success-border);
+    --_border-color-hover: var(--snap-color-success);
   }
 
+  /* Compact, as in the prototype's table toolbars */
   :scope[size="small"] {
-    --_font-size: 14px;
+    --_font-size: var(--snap-text-md);
+    --_padding-x: calc(var(--snap-space-7) - 1px);
+    --_padding-y: var(--snap-space-3);
+    --_radius: var(--snap-radius-menu);
   }
 
-  :scope[size="large"] {
-    --_font-size: 18px;
+  :scope[disabled] .snap-button {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }

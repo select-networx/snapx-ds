@@ -1,0 +1,170 @@
+/*
+** SNAPx Design System tokens, taken from the approved SNAPX redesign prototype.
+**
+** Two looks share one base palette:
+**   select  Orange accent, square cards with corner brackets (the default)
+**   snapx   Blue accent, navy navigation, rounded cards
+**
+** Switch looks with a data-theme attribute, usually on <html>:
+**   <html data-theme="snapx">
+** It also works on any element, to show part of a page in the other look.
+**
+** Every token is prefixed --snap- so it can't collide with an app's own tokens.
+** Fonts aren't loaded here: the app loads Inter, Geist and JetBrains Mono.
+*/
+
+/* ── Base palette: shared by both looks ─────────────────────────────── */
+
+:root {
+  /* Text, darkest to faintest */
+  --snap-color-ink: #171717;
+  --snap-color-ink-2: #404040;
+  --snap-color-ink-3: #525252;
+  --snap-color-muted: #737373;
+  --snap-color-faint: #a3a3a3;
+
+  /* Surfaces and dividers */
+  --snap-color-surface: #fff;
+  --snap-color-surface-alt: #fafafa;
+  --snap-color-hairline: #e5e5e5;
+  --snap-color-rule: #f0f0f0;
+
+  /* Tables and filters */
+  --snap-color-table-head: #8a919e;
+  --snap-color-filter-active: #26303f;
+
+  /* Text and icons on an accent background */
+  --snap-color-on-accent: #fff;
+
+  /* Status: the base colour, text ("ink"), background and border */
+  --snap-color-success: #059669;
+  --snap-color-success-ink: #047857;
+  --snap-color-success-bg: #ecfdf5;
+  --snap-color-success-border: #a7f3d0;
+
+  --snap-color-warning: #d97706;
+  --snap-color-warning-ink: #b45309;
+  --snap-color-warning-bg: #fffbeb;
+  --snap-color-warning-border: #fde68a;
+
+  --snap-color-danger: #dc2626;
+  --snap-color-danger-ink: #b91c1c;
+  --snap-color-danger-ink-2: #991b1b;
+  --snap-color-danger-bg: #fef2f2;
+  --snap-color-danger-border: #fecaca;
+
+  /* Typography */
+  --snap-font-ui: Inter, sans-serif;
+  --snap-font-display: Geist, Inter, sans-serif;
+  --snap-font-mono: "JetBrains Mono", monospace;
+
+  --snap-text-2xs: 10px;   /* Uppercase labels, table headers, badges */
+  --snap-text-xs: 11px;    /* Secondary lines under a title */
+  --snap-text-sm: 12px;
+  --snap-text-md: 12.5px;  /* Dense UI: table cells, toolbar controls */
+  --snap-text-base: 13px;  /* Body copy, buttons, inputs */
+  --snap-text-lg: 15px;    /* Card titles (display font) */
+  --snap-text-xl: 20px;    /* Page titles (display font) */
+  --snap-text-2xl: 30px;   /* Headline figures */
+
+  --snap-weight-regular: 400;
+  --snap-weight-medium: 500;
+  --snap-weight-semibold: 600;
+
+  --snap-tracking-label: 0.08em;  /* Uppercase labels */
+  --snap-tracking-tight: -0.01em; /* Display headings */
+
+  /* Spacing: --snap-space-N is N × 2px */
+  --snap-space-1: 2px;
+  --snap-space-2: 4px;
+  --snap-space-3: 6px;
+  --snap-space-4: 8px;
+  --snap-space-5: 10px;
+  --snap-space-6: 12px;
+  --snap-space-7: 14px;
+  --snap-space-8: 16px;
+  --snap-space-9: 18px;
+  --snap-space-10: 20px;
+  --snap-space-12: 24px;
+  --snap-space-14: 28px;
+
+  /* Shape */
+  --snap-radius-badge: 5px;
+  --snap-radius-control: 7px;  /* Buttons, inputs */
+  --snap-radius-menu: 8px;     /* Menus, popovers, toolbar groups */
+
+  /* Elevation */
+  --snap-shadow-sm: 0 1px 2px rgb(0 0 0 / 0.25);
+  --snap-shadow-popover: 0 8px 24px rgb(0 0 0 / 0.12);
+  --snap-shadow-modal: 0 24px 64px rgb(0 0 0 / 0.35);
+}
+
+/* ── Looks ──────────────────────────────────────────────────────────── */
+
+/*
+** Accent "washes" (tinted backgrounds) are the accent at low opacity, e.g.
+** color-mix(in srgb, var(--snap-color-accent) 5%, transparent).
+** The prototype uses 3% to 12% for hover and selected rows, 25% to 50% for emphasis.
+*/
+
+:root,
+[data-theme="select"] {
+  /* Accent */
+  --snap-color-accent: #df6126;
+  --snap-color-accent-hover: #c95520;
+  --snap-color-accent-ink: #c95520;  /* Accent-coloured text */
+  --snap-color-wash-ink: #7c3a12;    /* Text on an accent wash */
+
+  /* Borders and page */
+  --snap-color-border: #d4d4d4;
+  --snap-color-border-soft: #e5e5e5;
+  --snap-color-page: #f7f7f7;
+
+  /* Navigation */
+  --snap-color-nav-bg: rgb(247 247 247 / 0.9);
+  --snap-color-nav-border: #e5e5e5;
+  --snap-color-nav-text: #404040;
+  --snap-color-nav-user-text: #171717;
+  --snap-color-nav-field-bg: #fff;
+  --snap-color-nav-field-border: #d4d4d4;
+
+  /* Cards and stat tiles */
+  --snap-radius-card: 0;
+  --snap-card-bracket-size: 12px;  /* Corner brackets on cards; 0 hides them */
+  --snap-stat-gap: 0;              /* Gap between stat tiles */
+}
+
+[data-theme="snapx"] {
+  /* Accent */
+  --snap-color-accent: #2563eb;
+  --snap-color-accent-hover: #1d4ed8;
+  --snap-color-accent-ink: #1d4ed8;
+  --snap-color-wash-ink: #1e3a8a;
+
+  /* Borders and page */
+  --snap-color-border: #d6dae2;
+  --snap-color-border-soft: #e3e5e9;
+  --snap-color-page: #eef0f4;
+
+  /* Navigation */
+  --snap-color-nav-bg: #26303f;
+  --snap-color-nav-border: #26303f;
+  --snap-color-nav-text: #c6ccd6;
+  --snap-color-nav-user-text: #e6e9ef;
+  --snap-color-nav-field-bg: rgb(255 255 255 / 0.08);
+  --snap-color-nav-field-border: rgb(255 255 255 / 0.16);
+
+  /* Cards and stat tiles */
+  --snap-radius-card: 12px;
+  --snap-card-bracket-size: 0;
+  --snap-stat-gap: 14px;
+}
+
+/*
+** Nothing here derives one token from another: a custom property resolves where
+** it's declared, so a token like --snap-color-focus: var(--snap-color-accent)
+** set on :root would stay orange inside a data-theme="snapx" section, or under
+** an app's own --snap-color-accent override. Components derive values where
+** they use them instead, e.g. var(--snap-color-focus, var(--snap-color-accent)),
+** which leaves --snap-color-focus as an optional override.
+*/

@@ -13,6 +13,8 @@ import { Elena, html } from "@elenajs/core";
  * @cssprop [--snap-button-text] - Overrides the default text color.
  * @cssprop [--snap-button-bg] - Overrides the default background color.
  * @cssprop [--snap-button-bg-hover] - Overrides the default background color on hover.
+ * @cssprop [--snap-button-text-hover] - Overrides the default text color on hover.
+ * @cssprop [--snap-button-border-color-hover] - Overrides the default border color on hover.
  * @cssprop [--snap-button-font] - Overrides the default font family.
  * @cssprop [--snap-button-font-size] - Overrides the default font size.
  * @cssprop [--snap-button-font-weight] - Overrides the default font weight.
@@ -32,13 +34,13 @@ export default class SnapButton extends Elena(HTMLElement) {
    * The style variant of the component.
    * @property
    */
-  variant: "default" | "primary" | "danger" = "default";
+  variant: "default" | "primary" | "danger" | "success" = "default";
 
   /**
    * Whether or not the button is disabled.
    * @property
    */
-  disabled: boolean;
+  disabled: boolean = false;
   
   /**
    * Will force the component to render as a link if set.
@@ -53,10 +55,10 @@ export default class SnapButton extends Elena(HTMLElement) {
   icon?: string;
   
   /**
-   * Whether the button should render in a smaller or larger state than the default.
+   * Set to "small" for the compact button used in toolbars.
    * @property
    */
-  size?: "small" | "large";
+  size?: "small";
 
   renderButton() {
     return html`
