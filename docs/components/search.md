@@ -18,7 +18,8 @@
 
 <style>
     .component-example {
-        border: 1px solid #f6f6f6;
+        background: var(--snap-color-page);
+        border: 1px solid var(--snap-color-border-soft);
         border-radius: 6px;
         padding: 1.5rem;
         display: flex;
