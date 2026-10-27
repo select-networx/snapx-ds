@@ -59,8 +59,8 @@
   --snap-font-mono: "JetBrains Mono", monospace;
 
   --snap-text-2xs: 10px;   /* Uppercase labels, table headers, badges */
-  --snap-text-xs: 11px;    /* Secondary lines under a title */
-  --snap-text-field-label: 11.5px;  /* Labels above form fields */
+  --snap-text-xs: 11px;    /* Captions: hints, notes and timestamps */
+  --snap-text-xs-plus: 11.5px;  /* Field labels; the line under a list item's title */
   --snap-text-sm: 12px;
   --snap-text-md: 12.5px;  /* Dense UI: table cells, toolbar controls */
   --snap-text-base: 13px;  /* Body copy, buttons, inputs */

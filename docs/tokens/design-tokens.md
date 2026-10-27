@@ -73,7 +73,7 @@ from colliding with an app's own custom properties.
 | --- | --- | --- |
 | `color` | Colours | `--snap-color-accent`, `--snap-color-danger-bg` |
 | `font` | Font families, by role | `--snap-font-ui`, `--snap-font-display`, `--snap-font-mono` |
-| `text` | Font sizes, smallest to largest: `2xs` to `2xl`, plus `field-label` (11.5px) | `--snap-text-base` (13px) |
+| `text` | Font sizes, smallest to largest: `2xs` to `2xl`, plus `xs-plus` (11.5px) between `xs` and `sm` | `--snap-text-base` (13px) |
 | `weight` | Font weights | `--snap-weight-medium` |
 | `tracking` | Letter spacing | `--snap-tracking-label` |
 | `leading` | Line heights | `--snap-leading-body` |
