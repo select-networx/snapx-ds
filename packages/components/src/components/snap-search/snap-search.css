@@ -9,29 +9,71 @@
     display: revert;
   }
 
-  /* Targets the host element (snap-search) */
+  /*
+  ** Targets the host element (snap-search).
+  **
+  ** Defaults live in private --_* properties, set from the design tokens;
+  ** the public --snap-search-* properties are only read. See snap-button.css.
+  **
+  ** The field is the prototype's table toolbar filter.
+  */
   :scope {
-
-    /* Public CSS properties */
-    --snap-search-font: sans-serif;
-    --snap-search-text: white;
-    --snap-search-bg: blue;
+    --_font: var(--snap-font-ui);
+    --_font-size: var(--snap-text-md);
+    --_text: var(--snap-color-ink);
+    --_bg: var(--snap-color-surface);
+    --_border-color: var(--snap-color-border);
+    --_radius: var(--snap-radius-menu);
+    --_width: 190px;
+    --_focus: var(--snap-color-focus, var(--snap-color-accent));
 
     /* Display mode for the host element */
-    display: inline-block;
+    display: inline-flex;
+    position: relative;
+    align-items: center;
   }
 
-  /* CSS pre-hydration styles */
-  :scope:not([hydrated]),
-  .snap-search {
-    font-family: var(--snap-search-font);
-    color: var(--snap-search-text);
-    background: var(--snap-search-bg);
-    display: inline-block;
+  .snap-search-icon {
+    position: absolute;
+    left: var(--snap-space-5);
+    width: 13px;
+    height: 13px;
+    fill: none;
+    stroke: var(--snap-color-faint);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    pointer-events: none;
   }
 
-  /* Rest of your component styles */
-  :scope[variant="primary"] {
-    --snap-search-bg: red;
+  .snap-search-field {
+    box-sizing: border-box;
+    width: var(--snap-search-width, var(--_width));
+    /* 8px including the 1px border; the left padding clears the icon */
+    padding: calc(var(--snap-space-4) - 1px) var(--snap-space-6) calc(var(--snap-space-4) - 1px) 30px;
+    font-family: var(--snap-search-font, var(--_font));
+    font-size: var(--snap-search-font-size, var(--_font-size));
+    font-weight: var(--snap-weight-regular);
+    line-height: normal;
+    color: var(--snap-search-text, var(--_text));
+    background: var(--snap-search-bg, var(--_bg));
+    border: 1px solid var(--snap-search-border-color, var(--_border-color));
+    border-radius: var(--snap-search-radius, var(--_radius));
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &::placeholder {
+      color: var(--snap-color-faint);
+      opacity: 1;
+    }
+
+    /* The prototype has no clear button */
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+
+    &:focus {
+      border-color: var(--_focus);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--_focus) 10%, transparent);
+    }
   }
 }

@@ -1,0 +1,72 @@
+@scope (snap-text) {
+
+  /* Unset makes sure styles don't leak in */
+  :scope,
+  *:where(:not(img, svg):not(svg *)),
+  *::before,
+  *::after {
+    all: unset;
+    display: revert;
+  }
+
+  /*
+  ** Targets the host element (snap-text).
+  **
+  ** Defaults live in private --_* properties, set from the design tokens;
+  ** the public --snap-text-* properties are only read. See snap-button.css.
+  **
+  ** The default variant is body text.
+  */
+  :scope {
+    --_font: var(--snap-font-ui);
+    --_font-size: var(--snap-text-base);
+    --_font-weight: var(--snap-weight-regular);
+    --_tracking: normal;
+    --_color: var(--snap-color-ink);
+    /* Matches the prototype's font shorthand, whatever the page's line-height */
+    --_line-height: normal;
+
+    /* Display mode for the host element */
+    display: block;
+  }
+
+  .snap-text {
+    font-family: var(--snap-text-font, var(--_font));
+    font-size: var(--snap-text-font-size, var(--_font-size));
+    font-weight: var(--_font-weight);
+    line-height: var(--snap-text-line-height, var(--_line-height));
+    letter-spacing: var(--_tracking);
+    color: var(--snap-text-color, var(--_color));
+  }
+
+  :scope[weight="medium"] {
+    --_font-weight: var(--snap-weight-medium);
+  }
+
+  :scope[multiline] {
+    --_line-height: var(--snap-leading-body);
+  }
+
+  :scope[variant="secondary"] {
+    --_font-size: var(--snap-text-md);
+    --_color: var(--snap-color-muted);
+  }
+
+  :scope[variant="meta"] {
+    --_font-size: var(--snap-text-sm);
+    --_color: var(--snap-color-muted);
+  }
+
+  :scope[variant="caption"] {
+    --_font-size: var(--snap-text-xs);
+    --_color: var(--snap-color-faint);
+  }
+
+  /* Headline figures: the display font, always semibold */
+  :scope[variant="figure"] {
+    --_font: var(--snap-font-display);
+    --_font-size: var(--snap-text-2xl);
+    --_font-weight: var(--snap-weight-semibold);
+    --_tracking: var(--snap-tracking-tighter);
+  }
+}

@@ -39,6 +39,7 @@ export default defineConfig({
         items: [
           { text: "Introduction", link: "/" },
           { text: "Installation", link: "/install" },
+          { text: "Prototype Gaps", link: "/prototype-gaps" },
         ],
       },
       {
@@ -57,8 +58,12 @@ export default defineConfig({
       {
         text: "Components",
         items: [
-          { text: "Button", link: "/components/button" }, 
-          { text: "Search", link: "/components/search" }
+          { text: "Button", link: "/components/button" },
+          { text: "Heading", link: "/components/heading" },
+          { text: "Input", link: "/components/input" },
+          { text: "Label", link: "/components/label" },
+          { text: "Search", link: "/components/search" },
+          { text: "Text", link: "/components/text" },
         ],
       },
     ],

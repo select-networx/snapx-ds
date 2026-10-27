@@ -1,0 +1,90 @@
+@scope (snap-input) {
+
+  /* Unset makes sure styles don't leak in */
+  :scope,
+  *:where(:not(img, svg):not(svg *)),
+  *::before,
+  *::after {
+    all: unset;
+    display: revert;
+  }
+
+  /*
+  ** Targets the host element (snap-input).
+  **
+  ** Defaults live in private --_* properties, set from the design tokens;
+  ** the public --snap-input-* properties are only read. See snap-button.css.
+  **
+  ** The field is the prototype's standard form field.
+  */
+  :scope {
+    --_font: var(--snap-font-ui);
+    --_font-size: var(--snap-text-base);
+    --_text: var(--snap-color-ink);
+    --_bg: var(--snap-color-surface);
+    --_border-color: var(--snap-color-border);
+    --_height: 36px;
+    --_padding-x: var(--snap-space-5);
+    --_radius: var(--snap-radius-control);
+    --_focus: var(--snap-color-focus, var(--snap-color-accent));
+
+    /* Display mode for the host element */
+    display: block;
+  }
+
+  .snap-input-label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: var(--snap-font-ui);
+    font-size: var(--snap-text-field-label);
+    font-weight: var(--snap-weight-medium);
+    line-height: normal;
+    color: var(--snap-input-label-color, var(--snap-color-ink-3));
+  }
+
+  .snap-input-field {
+    box-sizing: border-box;
+    width: 100%;
+    height: var(--snap-input-height, var(--_height));
+    padding: 0 var(--snap-input-padding-x, var(--_padding-x));
+    font-family: var(--snap-input-font, var(--_font));
+    font-size: var(--snap-input-font-size, var(--_font-size));
+    font-weight: var(--snap-weight-regular);
+    line-height: normal;
+    color: var(--snap-input-text, var(--_text));
+    background: var(--snap-input-bg, var(--_bg));
+    border: 1px solid var(--snap-input-border-color, var(--_border-color));
+    border-radius: var(--snap-input-radius, var(--_radius));
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    /* The prototype's select placeholder is faint too */
+    &::placeholder {
+      color: var(--snap-color-faint);
+      opacity: 1;
+    }
+
+    &:focus {
+      border-color: var(--_focus);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--_focus) 10%, transparent);
+    }
+  }
+
+  .snap-input-hint {
+    display: block;
+    margin-top: var(--snap-space-2);
+    font-family: var(--snap-font-ui);
+    font-size: var(--snap-text-xs);
+    line-height: normal;
+    color: var(--snap-color-faint);
+  }
+
+  /*
+  ** Read-only: the prototype's static field. It keeps the focus ring,
+  ** since unlike the prototype's it can take keyboard focus.
+  */
+  :scope[readonly] {
+    --_text: var(--snap-color-muted);
+    --_bg: var(--snap-color-surface-alt);
+    --_border-color: var(--snap-color-hairline);
+  }
+}
