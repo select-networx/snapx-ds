@@ -36,7 +36,7 @@
     display: block;
     margin-bottom: 5px;
     font-family: var(--snap-font-ui);
-    font-size: var(--snap-text-field-label);
+    font-size: var(--snap-text-xs-plus);
     font-weight: var(--snap-weight-medium);
     line-height: normal;
     color: var(--snap-input-label-color, var(--snap-color-ink-3));

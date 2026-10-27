@@ -24,8 +24,6 @@ Built, but worth confirming.
 
 | Decision | Why | Logged |
 | --- | --- | --- |
-| **Body text is five roles** (`snap-text`): body, secondary, meta, caption and figure. | The prototype has no single body style: it sets text in 22 combinations of size, weight and colour. The five roles cover the most-used ones. | SNAP-4144, 21 Oct 2026 |
-| **Read-only fields keep a focus ring.** | The prototype's read-only field is plain text, so it can't take focus. `snap-input`'s can, and keyboard users need to see where focus is. | SNAP-4144, 21 Oct 2026 |
 | **Uppercase labels use 0.1em letter spacing**, not the 0.08em first recorded in the tokens. | 0.1em is what the prototype's labels use. 0.08em is its table headers, which now have their own token, `--snap-tracking-table-head`. | SNAP-4144, 21 Oct 2026 |
 
 ## In the prototype, not built yet
@@ -44,6 +42,15 @@ These are in the prototype and wait for a later ticket or tier.
 | Dashboard figures at 34px | 2 uses, the dashboard only | A second page |
 | Table header labels | Every table | Tier 3 (tables) |
 | Badges | Throughout | Tier 2 |
+| Text links, in the accent with → or ↗ | 9 uses, e.g. "View all →" | Not yet assigned to a tier |
+
+## To revisit
+
+Built to match the prototype, but the prototype itself needs rethinking.
+
+| Issue | Detail | Logged |
+| --- | --- | --- |
+| **Body text has far too many styles.** | The prototype sets body text in 54 combinations of size, weight and colour, across 261 uses, with sizes only half a pixel apart (11, 11.5, 12, 12.5 and 13px). That's far more than a design system should have, and suggests its text styles weren't planned or applied consistently. `snap-text` follows it for now; its variants, tones and the type scale must be revisited and cut down to a smaller set. | SNAP-4144, 27 Oct 2026 |
 
 ## Decisions
 
@@ -54,3 +61,13 @@ These are in the prototype and wait for a later ticket or tier.
   admin uses, such as the dark button, is only added if the prototype has it.
 - **Style guide first (21 Oct 2026).** No admin pages are rebuilt while the
   design system is being made.
+- **Body text: six variants and five greys (27 Oct 2026).** `snap-text` has
+  six variants (body, secondary, meta, detail, caption and figure), and a
+  `tone` for when the prototype uses another grey at the same size. Together
+  they cover 82% of the prototype's body text. Most of the rest belongs to
+  other components: field labels, links, status text and navigation. This is
+  to be revisited (see [To revisit](#to-revisit)).
+- **Read-only fields keep a focus ring (27 Oct 2026).** The prototype's
+  read-only field is plain text, so it can't take focus. `snap-input`'s can,
+  so its value can be copied and is sent with the form, and keyboard users
+  need to see where focus is.

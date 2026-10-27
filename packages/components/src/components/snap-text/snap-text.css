@@ -57,6 +57,11 @@
     --_color: var(--snap-color-muted);
   }
 
+  :scope[variant="detail"] {
+    --_font-size: var(--snap-text-xs-plus);
+    --_color: var(--snap-color-faint);
+  }
+
   :scope[variant="caption"] {
     --_font-size: var(--snap-text-xs);
     --_color: var(--snap-color-faint);
@@ -68,5 +73,26 @@
     --_font-size: var(--snap-text-2xl);
     --_font-weight: var(--snap-weight-semibold);
     --_tracking: var(--snap-tracking-tighter);
+  }
+
+  /* Tones come after the variants, so a tone replaces the variant's grey */
+  :scope[tone="ink"] {
+    --_color: var(--snap-color-ink);
+  }
+
+  :scope[tone="ink-2"] {
+    --_color: var(--snap-color-ink-2);
+  }
+
+  :scope[tone="ink-3"] {
+    --_color: var(--snap-color-ink-3);
+  }
+
+  :scope[tone="muted"] {
+    --_color: var(--snap-color-muted);
+  }
+
+  :scope[tone="faint"] {
+    --_color: var(--snap-color-faint);
   }
 }
