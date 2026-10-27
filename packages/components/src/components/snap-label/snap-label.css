@@ -1,0 +1,63 @@
+@scope (snap-label) {
+
+  /* Unset makes sure styles don't leak in */
+  :scope,
+  *:where(:not(img, svg):not(svg *)),
+  *::before,
+  *::after {
+    all: unset;
+    display: revert;
+  }
+
+  /*
+  ** Targets the host element (snap-label).
+  **
+  ** Defaults live in private --_* properties, set from the design tokens;
+  ** the public --snap-label-* properties are only read. See snap-button.css.
+  */
+  :scope {
+    --_font: var(--snap-font-ui);
+    --_font-size: var(--snap-text-2xs);
+    --_tracking: var(--snap-tracking-label);
+    --_color: var(--snap-color-muted);
+
+    /* Display mode for the host element */
+    display: inline-block;
+  }
+
+  .snap-label {
+    font-family: var(--snap-label-font, var(--_font));
+    font-size: var(--snap-label-font-size, var(--_font-size));
+    font-weight: var(--snap-weight-semibold);
+    /* Matches the prototype's font shorthand, whatever the page's line-height */
+    line-height: normal;
+    letter-spacing: var(--snap-label-tracking, var(--_tracking));
+    text-transform: uppercase;
+    color: var(--snap-label-color, var(--_color));
+  }
+
+  :scope[tone="faint"] {
+    --_color: var(--snap-color-faint);
+  }
+
+  :scope[tone="accent"] {
+    --_color: var(--snap-color-accent);
+  }
+
+  /* With a rule, the label fills its row and the hairline takes the rest */
+  :scope[rule] {
+    display: flex;
+    align-items: center;
+    gap: var(--snap-space-5);
+
+    .snap-label {
+      white-space: nowrap;
+    }
+  }
+
+  .snap-label-rule {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--snap-color-hairline), transparent);
+  }
+}

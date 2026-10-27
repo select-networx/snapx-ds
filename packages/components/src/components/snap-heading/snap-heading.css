@@ -1,0 +1,44 @@
+@scope (snap-heading) {
+
+  /* Unset makes sure styles don't leak in */
+  :scope,
+  *:where(:not(img, svg):not(svg *)),
+  *::before,
+  *::after {
+    all: unset;
+    display: revert;
+  }
+
+  /*
+  ** Targets the host element (snap-heading).
+  **
+  ** Defaults live in private --_* properties, set from the design tokens;
+  ** the public --snap-heading-* properties are only read. See snap-button.css.
+  **
+  ** The default variant is the prototype's card title.
+  */
+  :scope {
+    --_font: var(--snap-font-display);
+    --_font-size: var(--snap-text-lg);
+    --_tracking: var(--snap-tracking-tight);
+    --_color: var(--snap-color-ink);
+
+    /* Display mode for the host element */
+    display: block;
+  }
+
+  .snap-heading {
+    font-family: var(--snap-heading-font, var(--_font));
+    font-size: var(--snap-heading-font-size, var(--_font-size));
+    font-weight: var(--snap-weight-semibold);
+    /* Matches the prototype's font shorthand, whatever the page's line-height */
+    line-height: normal;
+    letter-spacing: var(--snap-heading-tracking, var(--_tracking));
+    color: var(--snap-heading-color, var(--_color));
+  }
+
+  :scope[variant="page"] {
+    --_font-size: var(--snap-text-xl);
+    --_tracking: var(--snap-tracking-tighter);
+  }
+}

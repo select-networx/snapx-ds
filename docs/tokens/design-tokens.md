@@ -73,9 +73,10 @@ from colliding with an app's own custom properties.
 | --- | --- | --- |
 | `color` | Colours | `--snap-color-accent`, `--snap-color-danger-bg` |
 | `font` | Font families, by role | `--snap-font-ui`, `--snap-font-display`, `--snap-font-mono` |
-| `text` | Font sizes, smallest to largest: `2xs` to `2xl` | `--snap-text-base` (13px) |
+| `text` | Font sizes, smallest to largest: `2xs` to `2xl`, plus `field-label` (11.5px) | `--snap-text-base` (13px) |
 | `weight` | Font weights | `--snap-weight-medium` |
 | `tracking` | Letter spacing | `--snap-tracking-label` |
+| `leading` | Line heights | `--snap-leading-body` |
 | `space` | Spacing. `--snap-space-N` is N × 2px | `--snap-space-4` (8px), `--snap-space-9` (18px) |
 | `radius` | Corner radii, by what they're for | `--snap-radius-control`, `--snap-radius-card` |
 | `shadow` | Elevation | `--snap-shadow-popover` |

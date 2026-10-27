@@ -2,15 +2,25 @@
 
 ::: raw
 <div class="component-example">
-  <snap-search>Search</snap-search>
-  <snap-search variant="primary">Search</snap-search>
+  <snap-search label="Filter sites" placeholder="Filter sites…"></snap-search>
+  <snap-button size="small">Export</snap-button>
 </div>
 :::
 
 ```html
-<snap-search>Search</snap-search>
-<snap-search variant="primary">Search</snap-search>
+<snap-search label="Filter sites" placeholder="Filter sites…"></snap-search>
 ```
+
+This is the filter field from the prototype's table toolbars, which pairs
+with small buttons. It's 190px wide by default; set `--snap-search-width` to
+change it:
+
+```html
+<snap-search label="Search this folder" placeholder="Search this folder…" style="--snap-search-width: 240px"></snap-search>
+```
+
+The field has no visible label, so set `label` to describe what it searches.
+Screen readers read it out.
 
 ## Props
 
@@ -23,6 +33,8 @@
         border-radius: 6px;
         padding: 1.5rem;
         display: flex;
+        flex-wrap: wrap;
+        align-items: center;
         gap: .5rem;
         margin-top: 1.25rem;
     }

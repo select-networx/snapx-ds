@@ -60,6 +60,7 @@
 
   --snap-text-2xs: 10px;   /* Uppercase labels, table headers, badges */
   --snap-text-xs: 11px;    /* Secondary lines under a title */
+  --snap-text-field-label: 11.5px;  /* Labels above form fields */
   --snap-text-sm: 12px;
   --snap-text-md: 12.5px;  /* Dense UI: table cells, toolbar controls */
   --snap-text-base: 13px;  /* Body copy, buttons, inputs */
@@ -71,8 +72,12 @@
   --snap-weight-medium: 500;
   --snap-weight-semibold: 600;
 
-  --snap-tracking-label: 0.08em;  /* Uppercase labels */
-  --snap-tracking-tight: -0.01em; /* Display headings */
+  --snap-tracking-label: 0.1em;        /* Uppercase labels */
+  --snap-tracking-table-head: 0.08em;  /* Uppercase table headers */
+  --snap-tracking-tight: -0.01em;      /* Card titles (display font) */
+  --snap-tracking-tighter: -0.02em;    /* Page titles and headline figures */
+
+  --snap-leading-body: 1.5;  /* Text that wraps onto several lines */
 
   /* Spacing: --snap-space-N is N × 2px */
   --snap-space-1: 2px;
