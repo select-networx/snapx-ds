@@ -49,6 +49,16 @@ they aren't built. See [Prototype gaps](/prototype-gaps).
 
 <PropsTable tag="snap-input" />
 
+## Events
+
+<EventsTable tag="snap-input" />
+
+## Custom properties
+
+Set these on the element, or on any container, to adjust it. See [Styling](/install#styling).
+
+<CssPropsTable tag="snap-input" />
+
 <style>
     .component-example {
         background: var(--snap-color-page);

@@ -6,9 +6,9 @@ import { Elena, html } from "@elenajs/core";
  * @displayName Button
  * @status alpha
  *
- * @event click - Programmatically fire click on the component.
- * @event focus - Programmatically move focus to the component.
- * @event blur - Programmatically remove focus from the component.
+ * @event click - Fires when the button is clicked. Call `click()` to click it from code.
+ * @event focus - Fires when the button gets focus. Call `focus()` to move focus to it.
+ * @event blur - Fires when the button loses focus. Call `blur()` to remove focus from it.
  *
  * @cssprop [--snap-button-text] - Overrides the default text color.
  * @cssprop [--snap-button-bg] - Overrides the default background color.

@@ -90,6 +90,12 @@ prototype for now, but they'll be revisited and cut down. See
 
 <PropsTable tag="snap-text" />
 
+## Custom properties
+
+Set these on the element, or on any container, to adjust it. See [Styling](/install#styling).
+
+<CssPropsTable tag="snap-text" />
+
 <style>
     .component-example {
         background: var(--snap-color-page);

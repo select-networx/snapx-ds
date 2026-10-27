@@ -38,7 +38,8 @@ export default defineConfig({
         text: "Welcome",
         items: [
           { text: "Introduction", link: "/" },
-          { text: "Installation", link: "/install" },
+          { text: "Using the Package", link: "/install" },
+          { text: "Choosing Components", link: "/choosing-components" },
           { text: "Prototype Gaps", link: "/prototype-gaps" },
         ],
       },
@@ -46,7 +47,7 @@ export default defineConfig({
         text: "Principles",
         items: [
           { text: "Design Principles", link: "/design-principles" },
-          { text: "Accessibility Principles", link: "/accessibility" },
+          { text: "Accessibility", link: "/accessibility" },
         ],
       },
       {

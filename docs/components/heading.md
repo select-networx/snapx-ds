@@ -32,6 +32,12 @@ For an eyebrow above a page title, use [`snap-label`](/components/label) with
 
 <PropsTable tag="snap-heading" />
 
+## Custom properties
+
+Set these on the element, or on any container, to adjust it. See [Styling](/install#styling).
+
+<CssPropsTable tag="snap-heading" />
+
 <style>
     .component-example {
         background: var(--snap-color-page);

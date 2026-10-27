@@ -26,6 +26,16 @@ Screen readers read it out.
 
 <PropsTable tag="snap-search" />
 
+## Events
+
+<EventsTable tag="snap-search" />
+
+## Custom properties
+
+Set these on the element, or on any container, to adjust it. See [Styling](/install#styling).
+
+<CssPropsTable tag="snap-search" />
+
 <style>
     .component-example {
         background: var(--snap-color-page);

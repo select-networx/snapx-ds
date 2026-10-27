@@ -37,6 +37,34 @@ app, for example:
 />
 ```
 
+## Using tokens in your own CSS
+
+Where no component fits, style your own UI from the tokens, not raw values.
+It then matches the components, follows the look, and picks up any later
+change to a token.
+
+```css
+.site-summary {
+  padding: var(--snap-space-8);
+  background: var(--snap-color-surface);
+  border: 1px solid var(--snap-color-border-soft);
+  border-radius: var(--snap-radius-card);
+  color: var(--snap-color-ink);
+  font-family: var(--snap-font-ui);
+  font-size: var(--snap-text-base);
+}
+```
+
+- **Text greys go by role:** `ink` for main text, `ink-2` and `ink-3` for
+  emphasis a step down, `muted` for secondary text and `faint` for hints.
+  Faint is low contrast: see [Accessibility](/accessibility#check-the-contrast-of-grey-text).
+- **Radii go by what they're for:** `--snap-radius-control` for buttons and
+  fields, `--snap-radius-card` for cards. The card radius is `0` in Select and
+  12px in SNAPX, so use the token rather than a number.
+- **Spacing is the `--snap-space-N` scale,** where N × 2px is the size.
+- **Before styling text yourself, check [`snap-text`](/components/text) and
+  [`snap-heading`](/components/heading).**
+
 ## Overriding a token
 
 The library's CSS isn't in a cascade layer. CSS in a layer always loses to CSS
