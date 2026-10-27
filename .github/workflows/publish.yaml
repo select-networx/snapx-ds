@@ -9,7 +9,9 @@ on:
 
 jobs:
   publish:
-    runs-on: self-hosted
+    # GitHub-hosted: the org's self-hosted runners don't take jobs from
+    # public repos, so on them this job stays queued.
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
