@@ -2,6 +2,8 @@ import { h } from "vue";
 import DefaultTheme from "vitepress/theme";
 import "@select-networx/snapx-ds/dist/bundle.css";
 import ComponentHeader from "./components/ComponentHeader.vue";
+import CssPropsTable from "./components/CssPropsTable.vue";
+import EventsTable from "./components/EventsTable.vue";
 import PropsTable from "./components/PropsTable.vue";
 import ThemeSwitch from "./components/ThemeSwitch.vue";
 import TokenTable from "./components/TokenTable.vue";
@@ -11,6 +13,8 @@ export default {
   Layout: () => h(DefaultTheme.Layout, null, { "nav-bar-content-after": () => h(ThemeSwitch) }),
   enhanceApp({ app }) {
     app.component("ComponentHeader", ComponentHeader);
+    app.component("CssPropsTable", CssPropsTable);
+    app.component("EventsTable", EventsTable);
     app.component("PropsTable", PropsTable);
     app.component("TokenTable", TokenTable);
   },

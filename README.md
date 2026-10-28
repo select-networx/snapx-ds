@@ -6,6 +6,9 @@ Web components and design tokens for SNAPx, published as
 follow the approved SNAPX redesign prototype, in two looks: **Select** (orange,
 the default) and **SNAPX** (blue).
 
+**Docs:** https://select-networx.github.io/snapx-ds/, updated with each
+release.
+
 Work is tracked in Jira under epic
 [SNAP-3943](https://selectnetworx.atlassian.net/browse/SNAP-3943).
 
@@ -33,7 +36,7 @@ You need **Node 22**. `nvm use` picks it up from `.nvmrc`.
 ```sh
 npm install
 npm run build:lib   # Build the package once, so the docs have something to load
-npm run dev         # Rebuild on change, and serve the docs at http://localhost:5174
+npm run dev         # Rebuild on change, and serve the docs at http://localhost:5174/snapx-ds/
 ```
 
 No GitHub token is needed to work on this repo, only to install the package
@@ -43,7 +46,7 @@ in an app (see [Using the package](#using-the-package)).
 | --- | --- |
 | `npm run build:lib` | Builds `packages/components/dist` |
 | `npm run watch:lib` | Rebuilds the package on change |
-| `npm run docs:dev` | Serves the docs at http://localhost:5174 |
+| `npm run docs:dev` | Serves the docs at http://localhost:5174/snapx-ds/ |
 | `npm run docs:build` | Builds the docs site |
 | `npm run dev` | `watch:lib` and `docs:dev` together |
 
@@ -116,8 +119,10 @@ CSS pattern whose custom properties apps can't override.
 
 ## Releasing
 
-Releases publish to GitHub Packages from a workflow, when a GitHub release is
-published.
+Publishing a GitHub release runs a workflow that publishes the package to
+GitHub Packages and then, once that succeeds, deploys the docs to GitHub
+Pages. The docs therefore always describe the latest release, and changes to
+them go live with the next one.
 
 1. On your branch, bump the version:
 
@@ -128,6 +133,8 @@ published.
 2. Merge into `main`.
 3. Publish a GitHub release on `main`, tagged `v<version>` (e.g. `v0.0.3`).
    The workflow refuses to publish if the tag doesn't match the version.
+   If the package publishes but the docs don't, re-run the failed docs job
+   from the run's page in the Actions tab.
 4. Upgrade the apps. While the package is on `0.0.x`, `^0.0.1` only matches
    `0.0.1`, so each release needs an explicit upgrade:
 
@@ -136,6 +143,11 @@ published.
    ```
 
 A version can only be published once, so every release needs a new version.
+
+The docs deploy needs two repository settings, made once: **Settings → Pages
+→ Source** set to **GitHub Actions**, and in **Settings → Environments →
+github-pages**, a deployment rule allowing `v*` tags (releases run from their
+tag, which the environment rejects by default).
 
 ## Contributing
 

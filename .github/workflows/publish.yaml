@@ -1,7 +1,8 @@
-name: Publish package
+name: Publish package and docs
 
 # Publishes @select-networx/snapx-ds to GitHub Packages when a release is
-# published. The release tag must match the package version, e.g. v0.0.1.
+# published, then deploys the docs to GitHub Pages. The release tag must
+# match the package version, e.g. v0.0.1.
 on:
   release:
     types:
@@ -42,3 +43,48 @@ jobs:
         run: npm publish --workspace=packages/components
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # Only runs once the package is published, so the docs always describe a
+  # released version. The github-pages environment must allow v* tags.
+  docs:
+    needs: publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v7
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # The docs load the package from the workspace, so it's built first.
+      - name: Build package and docs
+        run: |
+          npm run build:lib
+          npm run docs:build
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+
+      - name: Upload docs
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs/.vitepress/dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

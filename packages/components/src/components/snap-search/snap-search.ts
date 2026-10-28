@@ -11,8 +11,8 @@ import { Elena, html } from "@elenajs/core";
  *
  * @event input - Fires as the value changes. Read the new value from `value`.
  * @event change - Fires when the user commits a change.
- * @event focus - Programmatically move focus to the input.
- * @event blur - Programmatically remove focus from the input.
+ * @event focus - Fires when the field gets focus. Call `focus()` to move focus to it.
+ * @event blur - Fires when the field loses focus. Call `blur()` to remove focus from it.
  *
  * @cssprop [--snap-search-text] - Overrides the default text color.
  * @cssprop [--snap-search-bg] - Overrides the default background color.

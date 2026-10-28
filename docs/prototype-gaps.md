@@ -51,6 +51,8 @@ Built to match the prototype, but the prototype itself needs rethinking.
 | Issue | Detail | Logged |
 | --- | --- | --- |
 | **Body text has far too many styles.** | The prototype sets body text in 54 combinations of size, weight and colour, across 261 uses, with sizes only half a pixel apart (11, 11.5, 12, 12.5 and 13px). That's far more than a design system should have, and suggests its text styles weren't planned or applied consistently. `snap-text` follows it for now; its variants, tones and the type scale must be revisited and cut down to a smaller set. | SNAP-4144, 27 Oct 2026 |
+| **Faint text fails contrast.** | `--snap-color-faint` (#a3a3a3) is 2.2:1 to 2.5:1 against the prototype's backgrounds, well under the 4.5:1 WCAG AA needs for text. The prototype uses it for captions, hints, placeholders and the line under list items. See [Accessibility](/accessibility#check-the-contrast-of-grey-text). | SNAP-4145, 27 Oct 2026 |
+| **Muted text on the page background fails contrast.** | `--snap-color-muted` (#737373) passes on white (4.7:1) but not on the page background: 4.4:1 in Select and 4.2:1 in SNAPX. Wherever the prototype puts muted text straight on the page, it falls short. | SNAP-4145, 27 Oct 2026 |
 
 ## Decisions
 

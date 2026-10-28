@@ -1,3 +1,7 @@
+---
+title: Text
+---
+
 <ComponentHeader tag="snap-text" />
 
 ::: raw
@@ -6,7 +10,7 @@
   <snap-text weight="medium">Customer PIN 4821</snap-text>
   <snap-text variant="secondary">March 2026 · 214 properties</snap-text>
   <snap-text variant="meta">12 sites billed</snap-text>
-  <snap-text variant="detail">AC Hotel Asheville · ASH-0042</snap-text>
+  <snap-text variant="detail">Northwind Harbour Hotel · NWH-0042</snap-text>
   <snap-text variant="caption">Updated 4 minutes ago</snap-text>
   <snap-text variant="figure">1,284</snap-text>
 </div>
@@ -17,7 +21,7 @@
 <snap-text weight="medium">Customer PIN 4821</snap-text>
 <snap-text variant="secondary">March 2026 · 214 properties</snap-text>
 <snap-text variant="meta">12 sites billed</snap-text>
-<snap-text variant="detail">AC Hotel Asheville · ASH-0042</snap-text>
+<snap-text variant="detail">Northwind Harbour Hotel · NWH-0042</snap-text>
 <snap-text variant="caption">Updated 4 minutes ago</snap-text>
 <snap-text variant="figure">1,284</snap-text>
 ```
@@ -89,6 +93,12 @@ prototype for now, but they'll be revisited and cut down. See
 ## Props
 
 <PropsTable tag="snap-text" />
+
+## Custom properties
+
+Set these on the element, or on any container, to adjust it. See [Styling](/install#styling).
+
+<CssPropsTable tag="snap-text" />
 
 <style>
     .component-example {

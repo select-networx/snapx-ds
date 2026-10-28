@@ -1,3 +1,7 @@
+---
+title: Label
+---
+
 <ComponentHeader tag="snap-label" />
 
 ::: raw
@@ -41,6 +45,12 @@ the table and badge components.
 ## Props
 
 <PropsTable tag="snap-label" />
+
+## Custom properties
+
+Set these on the element, or on any container, to adjust it. See [Styling](/install#styling).
+
+<CssPropsTable tag="snap-label" />
 
 <style>
     .component-example {

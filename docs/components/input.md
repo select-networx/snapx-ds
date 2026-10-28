@@ -1,3 +1,7 @@
+---
+title: Input
+---
+
 <ComponentHeader tag="snap-input" />
 
 ::: raw
@@ -48,6 +52,16 @@ they aren't built. See [Prototype gaps](/prototype-gaps).
 ## Props
 
 <PropsTable tag="snap-input" />
+
+## Events
+
+<EventsTable tag="snap-input" />
+
+## Custom properties
+
+Set these on the element, or on any container, to adjust it. See [Styling](/install#styling).
+
+<CssPropsTable tag="snap-input" />
 
 <style>
     .component-example {
