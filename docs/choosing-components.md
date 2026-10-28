@@ -100,15 +100,15 @@ A title in medium weight, with a detail line under it.
 ::: raw
 <div class="pattern-example">
   <div class="stack">
-    <snap-text weight="medium">AC Hotel Asheville Biltmore Village</snap-text>
-    <snap-text variant="detail">Asheville, NC · ASH-0042</snap-text>
+    <snap-text weight="medium">Northwind Harbour Hotel</snap-text>
+    <snap-text variant="detail">Portland, ME · NWH-0042</snap-text>
   </div>
 </div>
 :::
 
 ```html
-<snap-text weight="medium">AC Hotel Asheville Biltmore Village</snap-text>
-<snap-text variant="detail">Asheville, NC · ASH-0042</snap-text>
+<snap-text weight="medium">Northwind Harbour Hotel</snap-text>
+<snap-text variant="detail">Portland, ME · NWH-0042</snap-text>
 ```
 
 ### A form section

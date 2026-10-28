@@ -1,3 +1,7 @@
+---
+title: Heading
+---
+
 <ComponentHeader tag="snap-heading" />
 
 ::: raw

@@ -1,3 +1,7 @@
+---
+title: Button
+---
+
 <ComponentHeader tag="snap-button" />
 
 ::: raw

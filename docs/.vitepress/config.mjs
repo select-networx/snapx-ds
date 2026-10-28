@@ -1,9 +1,17 @@
+import { readFileSync } from "fs";
 import { defineConfig } from "vitepress";
 import { postcssIsolateStyles } from "vitepress";
+
+// The docs deploy with each release, so the nav shows which version they describe.
+const { version } = JSON.parse(
+  readFileSync(new URL("../../packages/components/package.json", import.meta.url), "utf-8"),
+);
 
 export default defineConfig({
   title: "SNAPx Design System",
   description: "Component library documentation",
+  // Served from GitHub Pages at https://select-networx.github.io/snapx-ds/
+  base: "/snapx-ds/",
   head: [
     // The library doesn't load fonts, so the docs do, as an app would.
     ["link", { rel: "preconnect", href: "https://fonts.googleapis.com" }],
@@ -33,6 +41,9 @@ export default defineConfig({
     },
   },
   themeConfig: {
+    nav: [
+      { text: `v${version}`, link: "https://github.com/select-networx/snapx-ds/releases" },
+    ],
     sidebar: [
       {
         text: "Welcome",

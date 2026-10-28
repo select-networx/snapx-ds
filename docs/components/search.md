@@ -1,3 +1,7 @@
+---
+title: Search
+---
+
 <ComponentHeader tag="snap-search" />
 
 ::: raw

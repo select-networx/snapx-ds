@@ -11,10 +11,11 @@ from GitHub Packages needs a personal GitHub token, even to read; snapx-admin's
 `DESIGN_SYSTEM_SETUP.md` explains how to make one and where to put it.
 
 ```sh
-npm install @select-networx/snapx-ds@0.0.5
+npm install @select-networx/snapx-ds@<version>
 ```
 
-While the version is `0.0.x`, `^0.0.5` matches only `0.0.5`, so every new
+These docs describe the version shown at the top of the page. While the
+version is `0.0.x`, a range like `^0.0.5` matches only `0.0.5`, so every new
 release needs installing explicitly.
 
 ## Loading it

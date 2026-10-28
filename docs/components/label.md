@@ -1,3 +1,7 @@
+---
+title: Label
+---
+
 <ComponentHeader tag="snap-label" />
 
 ::: raw

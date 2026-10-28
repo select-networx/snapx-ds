@@ -1,3 +1,7 @@
+---
+title: Input
+---
+
 <ComponentHeader tag="snap-input" />
 
 ::: raw
